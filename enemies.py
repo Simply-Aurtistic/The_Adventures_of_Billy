@@ -1,16 +1,14 @@
 import random
-from boards import Level
-from player import Player
+from boards import Forest
 
 
-LEVEL = Level()
-player = Player()
+level = Forest()
 
 
 class Enemies:
 
     def __init__(self):
-        self.level = LEVEL.difficulty
+        self.level = level.difficulty
         self.hp = self.health()
         self.ap = self.attack_damage(self.level)
         self.defense = 0
@@ -31,9 +29,9 @@ class Enemies:
                 health_points += random.randint(1, 3)
         return health_points
 
-    def attack_damage(self, level):
+    def attack_damage(self, leveled):
         total_attack = 0
-        for level in range(level):
+        for levels in range(leveled):
             total_attack += random.randint(0, 2)
         if total_attack == 0:
             total_attack = 1
