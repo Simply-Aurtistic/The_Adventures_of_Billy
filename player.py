@@ -1,9 +1,14 @@
+import random
+
 
 class Player:
     def __init__(self):
         self.hp = 10
         self.gold = 10
         self.defense = 0
+
+    def health_upgrade(self):
+        self.hp += random.randint(1, 3)
 
     def damage(self, e_attack):
         damage_dealt = e_attack - self.defense
