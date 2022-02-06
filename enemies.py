@@ -49,7 +49,7 @@ class Zombie(Enemies):
 
     def __init__(self):
         super().__init__()
-        self.defense = 1
+        self.defense = 0
         self.name = "Zombie"
 
 
