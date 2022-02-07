@@ -101,14 +101,14 @@ class Battle:
             print(f"{self.shop.hp} hp")
             attack_weapon = input("Would you like to use your sword or bow?: ").lower()
             if attack_weapon == "bow":
-                attack = self.shop.bow.damage
+                attack = self.shop.bowdamage
                 self.enemy.damage(attack)
                 round_num += 1
                 if round_num > 2:
                     self.shop.damage(self.enemy.ap)
 
             if attack_weapon == "sword":
-                attack = self.shop.sword.damage
+                attack = self.shop.sworddamage
                 self.enemy.damage(attack)
                 if self.enemy.hp > 0:
                     self.shop.damage(self.enemy.ap)
