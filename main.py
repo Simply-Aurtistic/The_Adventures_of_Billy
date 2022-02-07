@@ -32,7 +32,7 @@ save_game_name = input("What is the save name?: ").lower() + ".csv"
 save_game = {
     "variable": ["hp", "huc", "suc", "buc", "auc", "gold", "sword", "bow", "defense"],
     "values": [shop.max_health, shop.health_upgrade_costs, shop.sword_upgrade_costs, shop.bow_upgrade_costs,
-               shop.armor_upgrade_costs, shop.gold, shop.sword.damage, shop.bow.damage, shop.defense]
+               shop.armor_upgrade_costs, shop.gold, shop.sworddamage, shop.bowdamage, shop.defense]
     }
 save_data = pandas.DataFrame(save_game)
 save_data.to_csv(save_game_name)
