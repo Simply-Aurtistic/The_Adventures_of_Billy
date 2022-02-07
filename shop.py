@@ -12,16 +12,11 @@ class Shop:
         self.bow_upgrade_costs = self.load_data.iat[3, 2]
         self.armor_upgrade_costs = self.load_data.iat[4, 2]
         self.gold = self.load_data.iat[5, 2]
-        self.sword = self.load_data.iat[6, 2]
-        self.bow = self.load_data.iat[7, 2]
+        self.sworddamage = self.load_data.iat[6, 2]
+        self.bowdamage = self.load_data.iat[7, 2]
         self.defense = self.load_data.iat[8, 2]
         self.shopping = True
         self.hp = self.max_health
-
-    def upgrade(self, stat, statcost):
-        stat += 1
-        self.gold -= statcost
-        statcost += 5
 
     def store(self):
         while self.shopping:
@@ -33,19 +28,25 @@ class Shop:
 
             if shop_choice == "armor":
                 if int(self.gold) >= int(self.armor_upgrade_costs):
-                    self.upgrade(self.defense, self.armor_upgrade_costs)
+                    self.defense += 1
+                    self.gold -= self.armor_upgrade_costs
+                    self.armor_upgrade_costs += 5
                 else:
                     print("Not enough money")
 
             elif shop_choice == "sword":
                 if self.gold >= self.sword_upgrade_costs:
-                    self.upgrade(self.sword.damage, self.sword_upgrade_costs)
+                    self.sworddamage += 1
+                    self.gold -= self.sword_upgrade_costs
+                    self.sword_upgrade_costs += 5
                 else:
                     print("Not enough money")
 
             elif shop_choice == "bow":
                 if self.gold >= self.bow_upgrade_costs:
-                    self.upgrade(self.bow.damage, self.bow_upgrade_costs)
+                    self.bowdamage += 1
+                    self.gold -= self.bow_upgrade_costs
+                    self.bow_upgrade_costs += 5
                 else:
                     print("Not enough money")
 
