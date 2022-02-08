@@ -10,10 +10,3 @@ class Level:
 
     def get_level(self):
         return self.difficulty
-
-
-class Forest(Level):
-
-    def __init__(self):
-        super().__init__()
-
