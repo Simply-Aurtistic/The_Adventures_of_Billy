@@ -74,6 +74,20 @@ class Shop:
         game = input("New game or load a game (new/load): ").lower()
         if game == "new":
             self.load_data = pandas.read_csv("start.csv")
+            print("As you enter Trevoria, a small quiet town, you are greeted by a old man. \n"
+                  "'Welcome to our fair little town.' He looks around a bit then continues 'We have been plagued by a "
+                  "monster horde of late.' \n"
+                  "He looks at your sword. 'Perhaps you can help us with this problem. You look capable enough at "
+                  "least. \n"
+                  "If you are looking for upgrades for your equipment, Buzz can help you over in his shop, the Iron "
+                  "Maiden'\n"
+                  "You head over to the Iron Maiden. As you walk through the door, you are greeted by a big gruff man."
+                  " \n"
+                  "'Hello my name is Beelzebub, but you can call me Buzz. You must be that new adventurer I have heard "
+                  "about' \n"
+                  "Buzz turns and gets back behind the counter. 'What can i get for you today.'")
+            self.store()
+            
         else:
             game_load = input("What is the save name: ") + ".csv"
             self.load_data = pandas.read_csv(game_load)
