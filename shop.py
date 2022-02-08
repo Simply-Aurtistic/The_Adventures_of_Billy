@@ -21,9 +21,11 @@ class Shop:
     def store(self):
         while self.shopping:
             print(f"You have {self.gold} gold")
-            print(f"Would you like to upgrade your armor for {self.armor_upgrade_costs} gold, your sword damage for "
-                  f"{self.sword_upgrade_costs} gold, your bow damage for {self.bow_upgrade_costs} gold, or your health "
-                  f"for {self.health_upgrade_costs} gold?")
+            print(f"As you walk though the door, Buzz turns to you and says 'Welcome back, \n"
+                  f"Would you like to upgrade your armor for {self.armor_upgrade_costs} gold, \n"
+                  f"your sword damage for {self.sword_upgrade_costs} gold, \n"
+                  f"your bow damage for {self.bow_upgrade_costs} gold, \n"
+                  f"or your health for {self.health_upgrade_costs} gold?")
             shop_choice = input("(armor/sword/bow/health/back): ").lower()
 
             if shop_choice == "armor":
