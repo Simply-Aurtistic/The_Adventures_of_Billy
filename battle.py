@@ -148,7 +148,7 @@ class Battle:
         self.encounter_list = [f"As you are following the path, you hear rustling in a bush, a {self.enemy.name} "
                                f"emerges.",
 
-                               f"As you are passing by a tree, you hear rustling in the limbs above,\n a "
+                               f"As you are passing by a tree, you hear rustling in the limbs above, \na "
                                f"{self.enemy.name} drops down in front of you.",
 
                                f"You hear noises ahead, you look and see a {self.enemy.name} wandering towards you."]
@@ -157,33 +157,36 @@ class Battle:
         self.encounter_list = [f"As you are traversing the side of the mountain, you notice a {self.enemy.name} ahead"
                                f"of you.",
 
-                               f"As you traverse the mountain path, a large pile of stones start shifting.\n a "
+                               f"As you traverse the mountain path, a large pile of stones start shifting. \na "
                                f"{self.enemy.name} emerges from the pile.",
 
-                               f"As you are walking along a cliff, a stone falls in front of you.\n You look up and see "
-                               f"a {self.enemy.name} throwing rocks at you."]
+                               f"As you are walking along a cliff, a stone falls in front of you. \n"
+                               f"You look up and see a {self.enemy.name} throwing rocks at you."]
 
     def encounter_cave(self):
         self.encounter_list = [f"As you delve deeper into the cave you hear footsteps behind you, you look back and see"
                                f" a {self.enemy.name}.",
 
-                               f"As you follow deeper into the cave, you see a light ahead of you.\n There is a bonfire "
-                               f"ahead with a {self.enemy.name} sitting next to it.",
+                               f"As you follow deeper into the cave, you see a light ahead of you. \n"
+                               f"There is a bonfire ahead with a {self.enemy.name} sitting next to it.",
 
                                f"You walk for a while and take a break. While you are resting, you hear grunting coming"
-                               f" from up ahead.\n You see a {self.enemy.name} running towards you."]
+                               f" from up ahead. \nYou see a {self.enemy.name} running towards you."]
 
     def encounter_boss(self):
-        self.encounter_list = [f"You feel a great power coming from the castle in front of you.\n You enter the castle "
-                               f"and go room to room until you find a {self.enemy.name} waiting for you.\n It turns to "
-                               f"you and says 'You have mettle, I'll give you that. But this will be your end.'",
+        self.encounter_list = [f"You feel a great power coming from the castle in front of you. \n"
+                               f"You enter the castle and go room to room until you find a {self.enemy.name} waiting "
+                               f"for you. \n"
+                               f"It turns to you and says 'You have mettle, I'll give you that. But this will be your "
+                               f"end.'",
 
-                               f"You feel a vicious aura coming for the heart of the forest.\n You go to investigate and"
-                               f" find a {self.enemy.name} in the middle of a clearing.\n You don't think they know you"
-                               f" are there.",
+                               f"You feel a vicious aura coming for the heart of the forest. \n"
+                               f"You go to investigate and find a {self.enemy.name} in the middle of a clearing. \n"
+                               f"You don't think they know you are there.",
 
-                               f"You see giant menacing cloud swirling around the top of Mount Simply_Aurtistic. "
-                               f"Lightning striking it left and right. You decide to investigate. As you get close to "
-                               f"the clouds, you hear a booming voice call out, 'You know not what you are doing. "
-                               f"BEGONE!' At that moment, a man comes flying out of the whirlwind and falls before "
-                               f"your feet. You look closer and see a {self.enemy.name} in the middle of the storm."]
+                               f"You see giant menacing cloud swirling around the top of Mount Simply_Aurtistic, \n"
+                               f"lightning striking it left and right. You decide to investigate. \n"
+                               f"As you get close to the clouds, you hear a booming voice call out, \n"
+                               f"'You know not what you are doing. BEGONE!' \n"
+                               f"At that moment, a man comes flying out of the whirlwind and falls before your feet. \n"
+                               f"You look closer and see a {self.enemy.name} in the middle of the storm."]
