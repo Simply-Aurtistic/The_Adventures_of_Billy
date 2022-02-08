@@ -1,9 +1,9 @@
 import random
-from boards import Forest
+from boards import Level
 import math
 
 
-level = Forest()
+level = Level()
 
 
 class Enemies:
