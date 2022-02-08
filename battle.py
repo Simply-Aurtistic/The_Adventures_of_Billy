@@ -187,4 +187,3 @@ class Battle:
                                f"the clouds, you hear a booming voice call out, 'You know not what you are doing. "
                                f"BEGONE!' At that moment, a man comes flying out of the whirlwind and falls before "
                                f"your feet. You look closer and see a {self.enemy.name} in the middle of the storm."]
-        
