@@ -9,17 +9,14 @@ shop = Shop()
 
 while game_is_on:
     print("\n")
-    print("\n")
     print("You arrive back at base")
     hp = shop.max_health
     choice = input("would you like to go shopping, adventuring, go back to the inn to save, of get info? "
                    "(shop/adventure/inn/info): ").lower()
     print("\n")
-    print("\n")
     while choice not in ["shop", "adventure", "inn", "info"]:
         print("Try to keep to right choices.")
         choice = input("would you like to go shopping, adventuring, or pause for now? (shop/adventure/pause): ").lower()
-        print("\n")
         print("\n")
     if choice == "info":
         print(f"bow: get a free round of damage if used first in battle, current damage is: {shop.bowdamage}, and costs"
