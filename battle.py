@@ -211,4 +211,3 @@ class Battle:
             self.shop.high_potion -= 1
         else:
             print("No full high potions")
-            
