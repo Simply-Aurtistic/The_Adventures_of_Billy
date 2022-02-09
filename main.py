@@ -27,8 +27,10 @@ while game_is_on:
               f"{shop.armor_upgrade_costs} gold to upgrade\n"
               f"health: health is base 10 and increases by a random amount up to 3 points, current max health is: "
               f"{shop.max_health},\n and costs {shop.health_upgrade_costs} gold to upgrade\n"
-              f"low potion: adds 1 to 4 temporary health points and costs 5 gold.\n"
-              f"high potion: adds 10 to 15 temporary health  points and costs 20 gold.")
+              f"low potion: adds 1 to 4 temporary health points and costs 5 gold. you currently have {shop.low_potion}"
+              f"\n"
+              f"high potion: adds 10 to 15 temporary health points and costs 20 gold.you currently have "
+              f"{shop.high_potion}")
 
     while choice == "shop":
 
