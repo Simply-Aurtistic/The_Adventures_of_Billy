@@ -12,8 +12,8 @@ shop.store()
 while game_is_on:
     print("You arrive back at base")
     hp = shop.max_health
-    choice = input("would you like to go shopping, adventuring, or go back to the inn? (shop/adventure/inn): ").lower()
-    while choice not in ["shop", "adventure", "pause"]:
+    choice = input("would you like to go shopping, adventuring, or go back to the inn to save? (shop/adventure/inn): ").lower()
+    while choice not in ["shop", "adventure", "inn"]:
         print("Try to keep to right choices.")
         choice = input("would you like to go shopping, adventuring, or pause for now? (shop/adventure/pause): ").lower()
 
