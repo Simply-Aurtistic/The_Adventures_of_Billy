@@ -30,6 +30,9 @@ while game_is_on:
     if choice == "inn":
         game_is_on = False
 
+print(f"current save name is {shop.game_load}\n"
+      f"please don't save over the start file\n"
+      f"game saves as lowercase name")
 save_game_name = input("What is the save name?: ").lower() + ".csv"
 
 save_game = {
