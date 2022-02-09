@@ -15,22 +15,18 @@ class Battle:
         self.enemy = "none"
         self.encounter_list = []
 
-    def damage(self, e_attack):
-        damage_dealt = e_attack - self.shop.defense
-        if damage_dealt < 0:
-            damage_dealt = 0
-        self.shop.hp -= damage_dealt
-
     def path_choice(self):
         while self.choosing_path:
             self.area = input("Would you like to explore the forest, the mountain, the cave, or take on a boss? "
                               "(forest/mountain/cave/boss): ").lower()
-
+            print("\n")
+            print("\n")
             while self.area not in ["forest", "mountain", "cave", "boss", "leave"]:
                 print("Try to keep to right choices.")
                 self.area = input("Would you like to explore the forest, the mountain, the cave, or take on a boss? "
                                   "(forest/mountain/cave/boss): ").lower()
-
+                print("\n")
+                print("\n")
             if self.area == "forest":
                 self.choice = "start"
                 self.fight = True
@@ -110,13 +106,13 @@ class Battle:
                 self.enemy.damage(attack)
                 round_num += 1
                 if round_num > 2:
-                    self.shop.damage(self.enemy.ap)
+                    self.shop.damage2(self.enemy.ap)
 
-            if attack_weapon == "sword":
+            elif attack_weapon == "sword":
                 attack = self.shop.sworddamage
                 self.enemy.damage(attack)
                 if self.enemy.hp > 0:
-                    self.shop.damage(self.enemy.ap)
+                    self.shop.damage1(self.enemy.ap)
                 round_num += 1
 
             if self.shop.hp <= 0:
@@ -143,6 +139,17 @@ class Battle:
                     if self.room % 10 == 0:
                         print(f"You find a chest that had {self.room} gold in it!")
                         self.shop.gold += self.room
+                    if self.shop.low_potion > 0 or self.shop.high_potion > 0:
+                        drink = input(f"you have {self.shop.low_potion} low potions and {self.shop.high_potion} high "
+                                      f"potions left. would you like to drink one?\n"
+                                      f"(low/high)")
+                        if drink == "low":
+                            self.drink_L_P()
+
+                        elif drink == "high":
+                            self.drink_H_P()
+                print("\n")
+                print("\n")
 
     def encounter_forest(self):
         self.encounter_list = [f"As you are following the path, you hear rustling in a bush, a {self.enemy.name} "
@@ -190,3 +197,18 @@ class Battle:
                                f"'You know not what you are doing. BEGONE!' \n"
                                f"At that moment, a man comes flying out of the whirlwind and falls before your feet. \n"
                                f"You look closer and see a {self.enemy.name} in the middle of the storm."]
+
+    def drink_L_P(self):
+        if self.shop.low_potion >= 1:
+            self.shop.hp += random.randint(1, 4)
+            self.shop.low_potion -= 1
+        else:
+            print("no full low potions")
+
+    def drink_H_P(self):
+        if self.shop.high_potion >= 1:
+            self.shop.hp += random.randint(10, 15)
+            self.shop.high_potion -= 1
+        else:
+            print("No full high potions")
+            
