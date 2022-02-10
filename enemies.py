@@ -9,12 +9,14 @@ level = Level()
 class Enemies:
 
     def __init__(self):
-        self.level = level.difficulty
-        self.hp = self.health()
-        self.ap = self.attack_damage(self.level)
+        self.afactor = 1
+        self.name = "None"
         self.defense = 0
         self.min = 1
         self.max = 2
+        self.level = level.difficulty
+        self.hp = self.health()
+        self.ap = self.attack_damage(self.level)
         self.gold = self.money(self.level)
 
     def money(self, challenge):
@@ -39,7 +41,8 @@ class Enemies:
     def attack_damage(self, challenge):
         total_attack = 0
         for levels in range(challenge):
-            total_attack += random.randint(0, 2)
+            total_attack += random.randint(2, 4)
+            total_attack = total_attack * self.afactor
         if total_attack == 0:
             total_attack = 1
         return total_attack
@@ -49,6 +52,7 @@ class Zombie(Enemies):
 
     def __init__(self):
         super().__init__()
+        self.afactor = 1
         self.defense = 0
         self.name = "Zombie"
 
@@ -59,6 +63,7 @@ class Skeleton(Enemies):
         super().__init__()
         self.defense = 1
         self.name = "Skeleton"
+        self.afactor = 1
 
 
 class Troll(Enemies):
@@ -69,6 +74,7 @@ class Troll(Enemies):
         self.min = 4
         self.max = 5
         self.name = "Troll"
+        self.afactor = 2
 
 
 class Goblin(Enemies):
@@ -78,6 +84,7 @@ class Goblin(Enemies):
         self.min = 1
         self.max = 2
         self.name = "Goblin"
+        self.afactor = 1
 
 
 class Dragon(Enemies):
@@ -88,6 +95,7 @@ class Dragon(Enemies):
         self.min = 12
         self.max = 15
         self.name = "Dragon"
+        self.afactor = 4
 
 
 class VampireLord(Enemies):
@@ -98,6 +106,7 @@ class VampireLord(Enemies):
         self.min = 12
         self.max = 15
         self.name = "Vampire Lord"
+        self.afactor = 4
 
 
 class Golem(Enemies):
@@ -108,6 +117,7 @@ class Golem(Enemies):
         self.min = 4
         self.max = 6
         self.name = "Golem"
+        self.afactor = 2
 
 
 class Giant(Enemies):
@@ -118,3 +128,4 @@ class Giant(Enemies):
         self.min = 4
         self.max = 6
         self.name = "Giant"
+        self.afactor = 3
