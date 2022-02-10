@@ -1,4 +1,4 @@
-from enemies import Zombie, Skeleton, Troll, Goblin, Dragon, VampireLord, Golem, Giant
+from enemies import Enemies, Zombie, Skeleton, Troll, Goblin, Dragon, VampireLord, Golem, Giant
 import random
 
 
@@ -12,49 +12,44 @@ class Battle:
         self.area = "start"
         self.fight = True
         self.cont = True
-        self.enemy = "none"
+        self.enemy_list = []
         self.encounter_list = []
+        self.enemy = Enemies()
 
     def path_choice(self):
         while self.choosing_path:
             self.area = input("Would you like to explore the forest, the mountain, the cave, or take on a boss? "
                               "(forest/mountain/cave/boss): ").lower()
             print("\n")
-            print("\n")
             while self.area not in ["forest", "mountain", "cave", "boss", "leave"]:
                 print("Try to keep to right choices.")
                 self.area = input("Would you like to explore the forest, the mountain, the cave, or take on a boss? "
                                   "(forest/mountain/cave/boss): ").lower()
-                print("\n")
                 print("\n")
             if self.area == "forest":
                 self.choice = "start"
                 self.fight = True
                 self.cont = True
                 self.choosing_path = False
-                self.enemy = random.choice([Zombie(), Skeleton()])
-                self.encounter_forest()
+                self.enemy_list = [Zombie(), "Zombie", Skeleton(), "Skeleton"]
 
             elif self.area == "mountain":
                 self.fight = True
                 self.cont = True
                 self.choosing_path = False
-                self.enemy = random.choice([Golem(), Giant()])
-                self.encounter_mountain()
+                self.enemy_list = [Golem(), "Golem", Giant(), "Giant"]
 
             elif self.area == "cave":
                 self.fight = True
                 self.cont = True
                 self.choosing_path = False
-                self.enemy = random.choice([Troll(), Goblin()])
-                self.encounter_cave()
-
+                self.enemy_list = [Troll(), "Troll", Goblin(), "Goblin"]
+                
             elif self.area == "boss":
                 self.fight = True
                 self.cont = True
                 self.choosing_path = False
-                self.enemy = random.choice([Dragon(), VampireLord()])
-                self.encounter_boss()
+                self.enemy_list = [Dragon(), "Dragon", VampireLord(), "Vampire Lord"]
 
             elif self.area == "leave":
                 self.choice = "back"
@@ -89,6 +84,19 @@ class Battle:
 
     def battle(self):
         print(f"{self.shop.hp} hp")
+        if self.area == "forest":
+            self.choose_enemy()
+            self.encounter_forest()
+        elif self.area == "mountain":
+            self.choose_enemy()
+            self.encounter_mountain()
+        elif self.area == "cave":
+            self.choose_enemy()
+            self.encounter_cave()
+        elif self.area == "boss":
+            self.choose_enemy()
+            self.encounter_boss()
+
         first_choice = input(f"{random.choice(self.encounter_list)} what do you do? (run/fight): ").lower()
 
         if first_choice == "run":
@@ -105,8 +113,9 @@ class Battle:
                 attack = self.shop.bowdamage
                 self.enemy.damage(attack)
                 round_num += 1
-                if round_num > 2:
-                    self.shop.damage2(self.enemy.ap)
+                if self.enemy.hp > 0:
+                    if round_num > 2:
+                        self.shop.damage2(self.enemy.ap)
 
             elif attack_weapon == "sword":
                 attack = self.shop.sworddamage
@@ -148,7 +157,6 @@ class Battle:
 
                         elif drink == "high":
                             self.drink_H_P()
-                print("\n")
                 print("\n")
 
     def encounter_forest(self):
@@ -211,3 +219,15 @@ class Battle:
             self.shop.high_potion -= 1
         else:
             print("No full high potions")
+
+    def choose_enemy(self):
+        if self.enemy == self.enemy_list[0]:
+            self.enemy = self.enemy_list[2]
+        elif self.enemy == self.enemy_list[2]:
+            self.enemy = self.enemy_list[0]
+        elif self.enemy.name == self.enemy_list[1]:
+            self.enemy = self.enemy_list[2]
+        elif self.enemy.name == self.enemy_list[3]:
+            self.enemy = self.enemy_list[0]
+        else:
+            self.enemy = random.choice(self.enemy_list)
