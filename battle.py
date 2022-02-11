@@ -44,7 +44,7 @@ class Battle:
                 self.cont = True
                 self.choosing_path = False
                 self.enemy_list = [Troll(), "Troll", Goblin(), "Goblin"]
-                
+
             elif self.area == "boss":
                 self.fight = True
                 self.cont = True
@@ -84,6 +84,7 @@ class Battle:
 
     def battle(self):
         print(f"{self.shop.hp} hp")
+
         if self.area == "forest":
             self.choose_enemy()
             self.encounter_forest()
@@ -231,3 +232,11 @@ class Battle:
             self.enemy = self.enemy_list[0]
         else:
             self.enemy = random.choice(self.enemy_list)
+            if self.enemy == self.enemy_list[0]:
+                self.enemy = self.enemy_list[2]
+            elif self.enemy == self.enemy_list[2]:
+                self.enemy = self.enemy_list[0]
+            elif self.enemy == self.enemy_list[1]:
+                self.enemy = self.enemy_list[2]
+            elif self.enemy == self.enemy_list[3]:
+                self.enemy = self.enemy_list[0]
